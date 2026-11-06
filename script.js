@@ -58,9 +58,7 @@
   };
 
   const banners = [
-    { titulo: 'Trilha Compliance', sub: 'Clique aqui e faça o Treinamento obrigatório de Compliance' },
-    { titulo: 'Segurança Digital', sub: 'Novo curso agendado — garanta já a sua vaga' },
-    { titulo: 'Liderança 2026', sub: 'Desenvolva suas competências de gestão' },
+    { titulo: 'Solicitação de|Parecer Jurídico', sub: 'Aprenda a reunir as informações e os documentos para solicitar a análise do Jurídico.' },
   ];
 
   let notificacoes = [
@@ -291,6 +289,7 @@
   let heroIdx = 0, heroTimer;
 
   function initHero() {
+    $('#hero-dots').hidden = banners.length < 2;
     $('#hero-dots').innerHTML = banners
       .map((_, i) => `<button type="button" data-i="${i}" aria-label="Ir para destaque ${i + 1}"></button>`).join('');
     $('#hero-dots').addEventListener('click', (e) => {
@@ -304,13 +303,14 @@
   }
   function reiniciarTimer() {
     clearInterval(heroTimer);
+    if (banners.length < 2) return;
     heroTimer = setInterval(() => mostrarBanner((heroIdx + 1) % banners.length), 6000);
   }
   function mostrarBanner(i, imediato) {
     heroIdx = i;
     const txt = $('.hero__text');
     const aplicar = () => {
-      $('#hero-titulo').innerHTML = banners[i].titulo.split(' ').map((w, k) => `<span class="${k === 0 ? 'outline' : ''}">${esc(w)}</span>`).join('');
+      $('#hero-titulo').innerHTML = banners[i].titulo.split('|').map((w, k) => `<span class="${k === 0 ? 'outline' : ''}">${esc(w)}</span>`).join('');
       $('#hero-sub').textContent = banners[i].sub;
       txt.classList.remove('fade');
     };
