@@ -848,13 +848,10 @@ body.sidebar-collapsed .menu__row {
 .hero__text { min-width: 0; max-width: 760px; }
 .hero__title { font-size: clamp(28px, 4vw, 56px); line-height: 1.08; overflow-wrap: break-word; }
 .hero__sub { max-width: 640px; }
-.hero__cta { display: inline-flex; align-items: center; gap: 12px; margin-top: 24px; padding: 12px 20px; border-radius: 8px; background: #111; color: #fff; font-weight: 700; }
-.hero__text:hover .hero__cta { background: #333; }
 .hero__text:focus-visible { outline: 3px solid #111; outline-offset: 8px; border-radius: 4px; }
 .hero__dots[hidden] { display: none; }
 @media (max-width: 767px) {
   .hero { padding: 36px 20px 90px; }
   .hero__text { width: 100%; }
   .hero__logo { display: none; }
-  .hero__cta { max-width: 100%; box-sizing: border-box; }
 }
